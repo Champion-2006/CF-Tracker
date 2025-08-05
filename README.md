@@ -1,36 +1,24 @@
-StatsForce – Codeforces Analytics Dashboard
-StatsForce is a dynamic frontend web app that provides deep insights into Codeforces user profiles using real-time data from the official Codeforces API. Designed with modern UI principles and powered by Chart.js, StatsForce helps users visualize their rating trends, problem-solving patterns, and contest performance — all in an interactive and mobile-friendly dashboard.
+# CF-Tracker
 
-Live Demo: Try StatsForce Now
+CF-Tracker is an advanced Codeforces analytics platform that helps users visualize and analyze their competitive programming performance in a clean and insightful dashboard. It fetches real-time data using the Codeforces API and represents it in intuitive graphs and tables.
 
-Features
-Codeforces Profile Analytics
-Fetch and display full user stats using Codeforces API
-View rating history with smooth line charts
-Analyze problem-solving trends by tag, difficulty, and rating
-Interactive Visualizations
-Built with Chart.js for beautiful, interactive graphs
-Compare two users side-by-side with detailed statistics
-Responsive charts for rating trends, problem distributions, and contest history
-Advanced UI & UX
-Modern design with gradients, glassmorphism, and subtle animations
-Fully responsive layout – works seamlessly on desktop and mobile
-Smooth scrolling and transition effects for better user experience
-Technical Highlights
-Real-time API integration with robust error handling
-Implements retry logic and efficient data parsing
-Processes large user submission data efficiently
-Tech Stack
-HTML5, CSS3, JavaScript (Vanilla)
-Chart.js – for chart rendering
-Codeforces API – for fetching real-time user data
-Screenshots
-StatsForce Intro
+## Features
 
-StatsForce Topic Stats
+- 📈 User rating progression graph
+- 🧠 Problem-solving statistics by tag and difficulty
+- 📊 Contest history and rank visualizations
+- 🔍 Comparison between multiple users
+- 🔗 Direct integration with Codeforces handles
 
-StatsForce Rating Graph
+## Technologies Used
 
-StatsForce Contest Stats
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Node.js (optional for advanced versions)
+- **API**: Codeforces Official API
+- **Charts**: Chart.js / Plotly.js for visualizations
 
-Future Enhanc
+## Getting Started
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/CF-Tracker.git
