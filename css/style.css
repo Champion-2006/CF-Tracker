@@ -8,22 +8,22 @@
     --primary-color: #3b82f6;
     --primary-dark: #2563eb;
     --secondary-color: #10b981;
-    --accent-color: #f59e0b;
+    --accent-color: #ef4444; 
     --text-primary: #1f2937;
     --text-secondary: #6b7280;
     --text-light: #9ca3af;
     --text-on-gradient: #ffffff;
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8fafc;
-    --bg-tertiary: #f1f5f9;
-    --border-color: #e5e7eb;
+    --bg-primary: #e0f2fe;
+    --bg-secondary: #bae6fd;
+    --bg-tertiary: #7dd3fc;
+    --border-color: #93c5fd;
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    --gradient-secondary: linear-gradient(135deg, #10b981 0%, #059669 100%); 
+    --gradient-accent: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); 
 }
 
 [data-theme="dark"] {
@@ -152,6 +152,7 @@ body {
     width: 100%;
 }
 
+/* Hero Section */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -232,7 +233,7 @@ body {
     background: rgba(255, 255, 255, 0.2);
 }
 
-
+/* Main Section */
 .main-section {
     padding: 6rem 0;
     position: relative;
@@ -401,6 +402,7 @@ body {
     gap: 0.75rem;
 }
 
+/* Profile Section */
 .profile-header {
     display: flex;
     gap: 1.5rem;
@@ -483,6 +485,10 @@ body {
     font-weight: 600;
     color: var(--text-primary);
 }
+
+/* Other existing CSS stays the same */
+/* ... Your full CSS continues unchanged from here ... */
+
 
 .stats-grid {
     display: grid;
@@ -616,6 +622,16 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+.contest-table td.positive {
+    color: #00aa00; /* Dark green like Codeforces */
+    font-weight: 600;
+}
+
+.contest-table td.negative {
+    color: #ff3333; /* Red for negative delta */
+    font-weight: 600;
+}
+
 
 .filter-btn.active,
 .filter-btn:hover {
@@ -623,7 +639,6 @@ body {
     color: white;
     border-color: var(--primary-color);
 }
-
 .table-wrapper {
     overflow-x: auto;
     border-radius: 12px;
@@ -1142,4 +1157,13 @@ body {
     .stats-name {
         font-size: 1.1rem; 
     }
+}
+.contest-table th.asc::after {
+    content: " ▲";
+    color: var(--primary-color);
+}
+
+.contest-table th.desc::after {
+    content: " ▼";
+    color: var(--primary-color);
 }

@@ -618,6 +618,7 @@ function updateContestTable(ratingHistory, contestFilter = 'All') {
         
         tbody.appendChild(row);
     });
+    enableContestTableSorting();
 }
 
 async function analyzeUser(handle) {
@@ -758,6 +759,53 @@ function updateComparisonUI(user1, user2, user1Rating, user2Rating, user1Accepte
     document.getElementById('commonProblems').textContent = commonProblems.size;
     document.getElementById('commonContests').textContent = commonContests.size;
 }
+    function enableContestTableSorting() {
+    const table = document.getElementById('contestTable');
+    if (!table) return;
+
+    const headers = table.querySelectorAll('th');
+    headers.forEach((header, index) => {
+        header.style.cursor = 'pointer';
+        header.addEventListener('click', () => {
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            const isAsc = header.classList.toggle('asc');
+            header.classList.toggle('desc', !isAsc);
+
+            // Remove sort indicators from other headers
+            headers.forEach(h => {
+                if (h !== header) h.classList.remove('asc', 'desc');
+            });
+
+            rows.sort((a, b) => {
+                const aText = a.children[index].textContent.trim();
+                const bText = b.children[index].textContent.trim();
+
+                // Numeric columns (Rank, Rating Δ, New Rating)
+                if (index === 1 || index === 2 || index === 3) {
+                    const aNum = parseInt(aText.replace(/[^\d-]/g, '')) || 0;
+                    const bNum = parseInt(bText.replace(/[^\d-]/g, '')) || 0;
+                    return isAsc ? aNum - bNum : bNum - aNum;
+                }
+
+                // Date column
+                if (index === 4) {
+                    const aDate = new Date(aText);
+                    const bDate = new Date(bText);
+                    return isAsc ? aDate - bDate : bDate - aDate;
+                }
+
+                // Text column (Contest name)
+                return isAsc
+                    ? aText.localeCompare(bText)
+                    : bText.localeCompare(aText);
+            });
+
+            tbody.innerHTML = '';
+            rows.forEach(r => tbody.appendChild(r));
+        });
+    });
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -820,8 +868,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 createRatingChart(currentUserRatingHistory, timeFrame);
             }
         });
-    });
-    
+    });    
+
     const contestFilterBtns = document.querySelectorAll('.filter-btn');
     contestFilterBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
